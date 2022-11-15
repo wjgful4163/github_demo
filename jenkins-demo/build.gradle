@@ -1,0 +1,43 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        maven {
+            url "https://maven.aliyun.com/repository/public"
+        }
+        mavenCentral()
+        maven { url "https://repository.primefaces.org" }
+    }
+    dependencies {
+        classpath('org.springframework.boot:spring-boot-gradle-plugin:2.7.0')// 加载插件，用到里面的函数方法
+    }
+
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+// 使用spring boot 框架
+apply plugin: 'org.springframework.boot'
+// 使用spring boot的自动依赖管理
+apply plugin: 'io.spring.dependency-management'
+
+group 'cn.com.jenkins.demo'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    maven {
+        url "https://maven.aliyun.com/repository/public"
+    }
+    mavenCentral()
+    maven { url "https://repository.primefaces.org" }
+}
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    compileOnly "org.projectlombok:lombok:1.18.22"
+
+}
+
+test {
+    useJUnitPlatform()
+}
